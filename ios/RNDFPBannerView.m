@@ -60,7 +60,7 @@
 
 - (void)setValidAdSizes:(NSArray *)adSizes
 {
-    __block NSMutableArray *validAdSizes = [[NSMutableArray alloc] initWithCapacity:adSizes.count];
+    /*__block NSMutableArray *validAdSizes = [[NSMutableArray alloc] initWithCapacity:adSizes.count];
     [adSizes enumerateObjectsUsingBlock:^(id jsonValue, NSUInteger idx, __unused BOOL *stop) {
         GADAdSize adSize = [RCTConvert GADAdSize:jsonValue];
         if (GADAdSizeEqualToSize(adSize, kGADAdSizeInvalid)) {
@@ -68,8 +68,14 @@
         } else {
             [validAdSizes addObject:NSValueFromGADAdSize(adSize)];
         }
-    }];
-    _bannerView.validAdSizes = validAdSizes;
+    }];*/
+    _bannerView.validAdSizes = @[
+        NSValueFromGADAdSize(kGADAdSizeBanner),
+        NSValueFromGADAdSize(kGADAdSizeMediumRectangle),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSize(320, 80))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSize(320, 160))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSize(320, 320)))
+    ];
 }
 
 - (void)setTestDevices:(NSArray *)testDevices
