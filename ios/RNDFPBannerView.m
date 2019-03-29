@@ -72,9 +72,9 @@
     _bannerView.validAdSizes = @[
         NSValueFromGADAdSize(kGADAdSizeBanner),
         NSValueFromGADAdSize(kGADAdSizeMediumRectangle),
-        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSize(320, 80))),
-        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSize(320, 160))),
-        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSize(320, 320)))
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 80))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 160))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 320)))
     ];
 }
 
