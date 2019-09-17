@@ -103,6 +103,40 @@
      ];
     }
 
+       if ([_bannerView.adUnitID isEqualToString:@"/21809957681/holdsport/sportmember_android/mobile_a"]) {
+     _bannerView.validAdSizes = @[
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(300, 50))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(300, 100))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 50))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 80))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 100))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 160)))
+     ];
+    }
+    if ([_bannerView.adUnitID isEqualToString:@"/21809957681/holdsport/sportmember_android/mobile_b"]) {
+     _bannerView.validAdSizes = @[
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(300, 50))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(300, 100))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(300, 250))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 50))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 80))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 100))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 160))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 320))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(336, 280)))
+
+     ];
+    }
+    if ([_bannerView.adUnitID isEqualToString:@"/21809957681/holdsport/sportmember_android/anchor"]) {
+     _bannerView.validAdSizes = @[
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(300, 50))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(300, 100))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 50))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 80))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 100)))
+     ];
+    }
+
 }
 
 - (void)setTestDevices:(NSArray *)testDevices
