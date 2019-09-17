@@ -103,7 +103,7 @@
      ];
     }
 
-       if ([_bannerView.adUnitID isEqualToString:@"/21809957681/holdsport/sportmember_android/mobile_a"]) {
+    if ([_bannerView.adUnitID isEqualToString:@"/21809957681/holdsport/sportmember_ios/mobile_a"]) {
      _bannerView.validAdSizes = @[
         NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(300, 50))),
         NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(300, 100))),
@@ -113,7 +113,7 @@
         NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 160)))
      ];
     }
-    if ([_bannerView.adUnitID isEqualToString:@"/21809957681/holdsport/sportmember_android/mobile_b"]) {
+    if ([_bannerView.adUnitID isEqualToString:@"/21809957681/holdsport/sportmember_ios/mobile_b"]) {
      _bannerView.validAdSizes = @[
         NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(300, 50))),
         NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(300, 100))),
@@ -127,7 +127,7 @@
 
      ];
     }
-    if ([_bannerView.adUnitID isEqualToString:@"/21809957681/holdsport/sportmember_android/anchor"]) {
+    if ([_bannerView.adUnitID isEqualToString:@"/21809957681/holdsport/sportmember_ios/anchor"]) {
      _bannerView.validAdSizes = @[
         NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(300, 50))),
         NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(300, 100))),
