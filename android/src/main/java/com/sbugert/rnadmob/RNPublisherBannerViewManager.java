@@ -172,6 +172,7 @@ class ReactPublisherAdView extends ReactViewGroup implements AppEventListener {
         if (this.adUnitID.equals(new String("/21809957681/holdsport/sportmember_android/anchor"))) {
             this.adView.setAdSizes(new AdSize(300, 50), new AdSize(300, 100), new AdSize(320, 50), new AdSize(320, 80),
                     new AdSize(320, 100));
+        }
 
         PublisherAdRequest.Builder adRequestBuilder = new PublisherAdRequest.Builder();
         if (testDevices != null) {
