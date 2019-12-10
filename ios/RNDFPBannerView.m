@@ -88,6 +88,7 @@
     if ([_bannerView.adUnitID isEqualToString:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_profile_app"]) {
      _bannerView.validAdSizes = @[
         NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 50))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 160))),
         NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 100)))
      ];
     }

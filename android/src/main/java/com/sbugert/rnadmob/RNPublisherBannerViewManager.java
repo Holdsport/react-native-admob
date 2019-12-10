@@ -150,7 +150,7 @@ class ReactPublisherAdView extends ReactViewGroup implements AppEventListener {
         }
 
         if (this.adUnitID.equals(new String("/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_profile_app"))) {
-            this.adView.setAdSizes(new AdSize(320, 50), new AdSize(320, 100));
+            this.adView.setAdSizes(new AdSize(320, 50), new AdSize(320, 100), new AdSize(320, 160));
         }
 
         if (this.adUnitID.equals(new String("/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_top_app"))) {
