@@ -19,16 +19,18 @@ class PublisherBanner extends Component {
     };
   }
 
-  componentDidMount() {
-    this.loadBanner();
-  }
-
   loadBanner() {
     UIManager.dispatchViewManagerCommand(
       findNodeHandle(this._bannerView),
       UIManager.getViewManagerConfig("RNDFPBannerView").Commands.loadBanner,
       null
     );
+  }
+
+  componentWillReceiveProps(props) {
+    if (this.props.loadCount != props.loadCount) {
+      this.loadBanner();
+    }
   }
 
   handleSizeChange(event) {
