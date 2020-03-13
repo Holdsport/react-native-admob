@@ -156,6 +156,18 @@ class ReactPublisherAdView extends ReactViewGroup implements AppEventListener {
             this.adView.setAdSizes(new AdSize(320, 160));
         }
 
+        if (this.adUnitID.equals(new String("/21829114275/sportmember.de/sportmember.de_app/sportmember.de_article1_app"))) {
+            this.adView.setAdSizes(new AdSize(320, 320), new AdSize(320, 160), new AdSize(320, 100), new AdSize(320, 50),new AdSize(300, 250));
+        }
+
+        if (this.adUnitID.equals(new String("/21829114275/sportmember.de/sportmember.de_app/sportmember.de_top_app"))) {
+            this.adView.setAdSizes(new AdSize(320, 320), new AdSize(320, 250), new AdSize(320, 160), new AdSize(320, 100), new AdSize(320, 50),new AdSize(300, 250));
+        }
+
+        if (this.adUnitID.equals(new String("/21829114275/sportmember.de/sportmember.de_app/sportmember.de_profile_app"))) {
+            this.adView.setAdSizes(new AdSize(320, 320), new AdSize(320, 250), new AdSize(320, 160), new AdSize(320, 100), new AdSize(320, 50),new AdSize(300, 250));
+        }
+
         PublisherAdRequest.Builder adRequestBuilder = new PublisherAdRequest.Builder();
         if (testDevices != null) {
             for (int i = 0; i < testDevices.length; i++) {
