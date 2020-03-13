@@ -87,18 +87,31 @@
     }
     if ([_bannerView.adUnitID isEqualToString:@"/21829114275/sportmember.de/sportmember.de_app/sportmember.de_article1_app"]) {
      _bannerView.validAdSizes = @[
-        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 320), CGSizeMake(320, 160), CGSizeMake(320, 100), CGSizeMake(320, 50),CGSizeMake(300, 250)))
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 320))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 160))), 
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 100))), 
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 50))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(300, 250)))
      ];
     }
     if ([_bannerView.adUnitID isEqualToString:@"/21829114275/sportmember.de/sportmember.de_app/sportmember.de_top_app"]) {
      _bannerView.validAdSizes = @[
-        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 320), CGSizeMake(320, 250), CGSizeMake(320, 160), CGSizeMake(320, 100), CGSizeMake(320, 50),CGSizeMake(300, 250)))
-
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 320))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 250))), 
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 160))), 
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 100))), 
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 50))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(300, 250)))
      ];
     }
     if ([_bannerView.adUnitID isEqualToString:@"/21829114275/sportmember.de/sportmember.de_app/sportmember.de_profile_app"]) {
      _bannerView.validAdSizes = @[
-        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 320), CGSizeMake(320, 250), CGSizeMake(320, 160), CGSizeMake(320, 100), CGSizeMake(320, 50),CGSizeMake(300, 250)))
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 320))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 250))), 
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 160))), 
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 100))), 
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 50))),
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(300, 250)))
      ];
     }
 
