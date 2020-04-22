@@ -10,8 +10,8 @@
 #import "UIView+React.h"
 #import "RCTLog.h"
 #endif
-
 #include "RCTConvert+GADAdSize.h"
+@import CriteoPublisherSdk;
 
 @implementation RNDFPBannerView
 {
@@ -55,6 +55,11 @@
 - (void)loadBanner {
     GADRequest *request = [GADRequest request];
     request.testDevices = _testDevices;
+        Criteo *criteoSdk = [Criteo sharedCriteo];
+    CRBannerAdUnit *bannerAdUnit = 
+        [[CRBannerAdUnit alloc] initWithAdUnitId:@"/123456/Mobile_Banner"
+                                            size:CGSizeMake(320, 50)];
+    [criteoSdk setBidsForRequest:request withAdUnit:bannerAdUnit];
     [_bannerView loadRequest:request];
 }
 
