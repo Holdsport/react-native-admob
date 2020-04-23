@@ -21,6 +21,8 @@ import com.google.android.gms.ads.doubleclick.AppEventListener;
 import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.doubleclick.PublisherAdView;
+import com.criteo.publisher.Criteo;
+import com.criteo.publisher.model.BannerAdUnit;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -166,6 +168,27 @@ class ReactPublisherAdView extends ReactViewGroup implements AppEventListener {
 
         if (this.adUnitID.equals(new String("/21829114275/sportmember.de/sportmember.de_app/sportmember.de_profile_app"))) {
             this.adView.setAdSizes(new AdSize(320, 320), new AdSize(320, 250), new AdSize(320, 160), new AdSize(320, 100), new AdSize(320, 50),new AdSize(300, 250));
+        }
+        // Handle criteo ad bids for request
+        if (this.adUnitID.equals(new String("/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_article1_app"))) {
+        BannerAdUnit bannerAdUnit = new BannerAdUnit(
+                "/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_article1_app",
+                new com.criteo.publisher.model.AdSize(320, 320));
+        Criteo.getInstance().setBidsForAdUnit(adRequestBuilder, bannerAdUnit);
+        }
+
+        if (this.adUnitID.equals(new String("/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_profile_app"))) {
+            BannerAdUnit bannerAdUnit = new BannerAdUnit(
+                    "/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_profile_app",
+                    new com.criteo.publisher.model.AdSize(320, 160));
+            Criteo.getInstance().setBidsForAdUnit(adRequestBuilder, bannerAdUnit);
+        }
+
+        if (this.adUnitID.equals(new String("/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_top_app"))) {
+            BannerAdUnit bannerAdUnit = new BannerAdUnit(
+                    "/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_top_app",
+                    new com.criteo.publisher.model.AdSize(320, 160));
+            Criteo.getInstance().setBidsForAdUnit(adRequestBuilder, bannerAdUnit);
         }
 
         PublisherAdRequest.Builder adRequestBuilder = new PublisherAdRequest.Builder();
