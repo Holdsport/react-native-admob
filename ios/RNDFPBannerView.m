@@ -11,7 +11,7 @@
 #import "RCTLog.h"
 #endif
 #include "RCTConvert+GADAdSize.h"
-@import CriteoPublisherSdk;
+//@import CriteoPublisherSdk;
 
 @implementation RNDFPBannerView
 {
@@ -55,26 +55,26 @@
 - (void)loadBanner {
     GADRequest *request = [GADRequest request];
     request.testDevices = _testDevices;
-        Criteo *criteoSdk = [Criteo sharedCriteo];
-
-    if ([_bannerView.adUnitID isEqualToString:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_article1_app"]) {
-        CRBannerAdUnit *bannerAdUnit = 
-            [[CRBannerAdUnit alloc] initWithAdUnitId:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_article1_app"
-                                                size:CGSizeMake(320, 320)];
-        [criteoSdk setBidsForRequest:request withAdUnit:bannerAdUnit];
-    }
-    if ([_bannerView.adUnitID isEqualToString:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_top_app"]) {
-        CRBannerAdUnit *bannerAdUnit = 
-            [[CRBannerAdUnit alloc] initWithAdUnitId:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_top_app"
-                                                size:CGSizeMake(320, 160)];
-        [criteoSdk setBidsForRequest:request withAdUnit:bannerAdUnit];
-    }
-    if ([_bannerView.adUnitID isEqualToString:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_profile_app"]) {
-        CRBannerAdUnit *bannerAdUnit = 
-            [[CRBannerAdUnit alloc] initWithAdUnitId:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_profile_app"
-                                                size:CGSizeMake(320, 160)];
-        [criteoSdk setBidsForRequest:request withAdUnit:bannerAdUnit];
-    }
+//       Criteo *criteoSdk = [Criteo sharedCriteo];
+//
+//   if ([_bannerView.adUnitID isEqualToString:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_article1_app"]) {
+//       CRBannerAdUnit *bannerAdUnit =
+//           [[CRBannerAdUnit alloc] initWithAdUnitId:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_article1_app"
+//                                               size:CGSizeMake(320, 320)];
+//       [criteoSdk setBidsForRequest:request withAdUnit:bannerAdUnit];
+//   }
+//   if ([_bannerView.adUnitID isEqualToString:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_top_app"]) {
+//       CRBannerAdUnit *bannerAdUnit =
+//           [[CRBannerAdUnit alloc] initWithAdUnitId:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_top_app"
+//                                               size:CGSizeMake(320, 160)];
+//       [criteoSdk setBidsForRequest:request withAdUnit:bannerAdUnit];
+//   }
+//   if ([_bannerView.adUnitID isEqualToString:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_profile_app"]) {
+//       CRBannerAdUnit *bannerAdUnit =
+//           [[CRBannerAdUnit alloc] initWithAdUnitId:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_profile_app"
+//                                               size:CGSizeMake(320, 160)];
+//       [criteoSdk setBidsForRequest:request withAdUnit:bannerAdUnit];
+//   }
     [_bannerView loadRequest:request];
 }
 
