@@ -11,7 +11,17 @@
 #import "RCTLog.h"
 #endif
 #include "RCTConvert+GADAdSize.h"
-@import CriteoPublisherSdk;
+#import <CriteoPublisherSdk/CRAdUnit.h>
+#import <CriteoPublisherSdk/CRBannerAdUnit.h>
+#import <CriteoPublisherSdk/CRBannerView.h>
+#import <CriteoPublisherSdk/CRBannerViewDelegate.h>
+#import <CriteoPublisherSdk/CRBidResponse.h>
+#import <CriteoPublisherSdk/CRBidToken.h>
+#import <CriteoPublisherSdk/CRInterstitial.h>
+#import <CriteoPublisherSdk/CRInterstitialAdUnit.h>
+#import <CriteoPublisherSdk/CRInterstitialDelegate.h>
+#import <CriteoPublisherSdk/CRNativeAdUnit.h>
+#import <CriteoPublisherSdk/Criteo.h>
 
 @implementation RNDFPBannerView
 {
