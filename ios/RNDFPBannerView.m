@@ -22,6 +22,7 @@
 #import <CriteoPublisherSdk/CRInterstitialDelegate.h>
 #import <CriteoPublisherSdk/CRNativeAdUnit.h>
 #import <CriteoPublisherSdk/Criteo.h>
+@import PrebidMobile;
 
 
 @implementation RNDFPBannerView
@@ -67,26 +68,52 @@
     GADRequest *request = [GADRequest request];
     request.testDevices = _testDevices;
       Criteo *criteoSdk = [Criteo sharedCriteo];
+    if([_bannerView.adUnitID isEqualToString:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_article1_app"] || [_bannerView.adUnitID isEqualToString:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_top_app"] || [_bannerView.adUnitID isEqualToString:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_profile_app"]) {
+        
+        if ([_bannerView.adUnitID isEqualToString:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_article1_app"]) {
+            CRBannerAdUnit *bannerAdUnit =
+                [[CRBannerAdUnit alloc] initWithAdUnitId:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_article1_app"
+                                                    size:CGSizeMake(320, 320)];
+            [criteoSdk setBidsForRequest:request withAdUnit:bannerAdUnit];
+            BannerAdUnit *bannerUnit = [[BannerAdUnit alloc] initWithConfigId:@"10095-mobilewrapper-top-test" size:CGSizeMake(320, 320)];
+                    [bannerUnit fetchDemandWithAdObject:request completion:^(enum ResultCode result) {
+            NSLog(@"Prebid demand result %ld", (long)result);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_bannerView loadRequest:request];
+            });
+        }];
+        }
+        if ([_bannerView.adUnitID isEqualToString:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_top_app"]) {
+            CRBannerAdUnit *bannerAdUnit =
+                [[CRBannerAdUnit alloc] initWithAdUnitId:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_top_app"
+                                                    size:CGSizeMake(320, 160)];
+            [criteoSdk setBidsForRequest:request withAdUnit:bannerAdUnit];
+            BannerAdUnit *bannerUnit = [[BannerAdUnit alloc] initWithConfigId:@"10095-mobilewrapper-article1-test" size:CGSizeMake(320, 160)];
+            [bannerUnit fetchDemandWithAdObject:request completion:^(enum ResultCode result) {
+            NSLog(@"Prebid demand result %ld", (long)result);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_bannerView loadRequest:request];
+            });
+        }];
 
-  if ([_bannerView.adUnitID isEqualToString:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_article1_app"]) {
-      CRBannerAdUnit *bannerAdUnit =
-          [[CRBannerAdUnit alloc] initWithAdUnitId:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_article1_app"
-                                              size:CGSizeMake(320, 320)];
-      [criteoSdk setBidsForRequest:request withAdUnit:bannerAdUnit];
-  }
-  if ([_bannerView.adUnitID isEqualToString:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_top_app"]) {
-      CRBannerAdUnit *bannerAdUnit =
-          [[CRBannerAdUnit alloc] initWithAdUnitId:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_top_app"
-                                              size:CGSizeMake(320, 160)];
-      [criteoSdk setBidsForRequest:request withAdUnit:bannerAdUnit];
-  }
-  if ([_bannerView.adUnitID isEqualToString:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_profile_app"]) {
-      CRBannerAdUnit *bannerAdUnit =
-          [[CRBannerAdUnit alloc] initWithAdUnitId:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_profile_app"
-                                              size:CGSizeMake(320, 160)];
-      [criteoSdk setBidsForRequest:request withAdUnit:bannerAdUnit];
-  }
-    [_bannerView loadRequest:request];
+        }
+        if ([_bannerView.adUnitID isEqualToString:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_profile_app"]) {
+            CRBannerAdUnit *bannerAdUnit =
+                [[CRBannerAdUnit alloc] initWithAdUnitId:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_profile_app"
+                                                    size:CGSizeMake(320, 160)];
+            [criteoSdk setBidsForRequest:request withAdUnit:bannerAdUnit];
+            BannerAdUnit *bannerUnit = [[BannerAdUnit alloc] initWithConfigId:@"10095-mobilewrapper-Profile-test" size:CGSizeMake(320, 160)];
+            [bannerUnit fetchDemandWithAdObject:request completion:^(enum ResultCode result) {
+            NSLog(@"Prebid demand result %ld", (long)result);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_bannerView loadRequest:request];
+            });
+        }];
+        }
+    } else {
+        [_bannerView loadRequest:request];
+    }
+
 }
 
 - (void)setValidAdSizes:(NSArray *)adSizes
