@@ -1,7 +1,7 @@
 package com.sbugert.rnadmob;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.View;
 
 import com.facebook.react.bridge.Arguments;
@@ -23,6 +23,8 @@ import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.doubleclick.PublisherAdView;
 import com.criteo.publisher.Criteo;
 import com.criteo.publisher.model.BannerAdUnit;
+import org.prebid.mobile.OnCompleteListener;
+import org.prebid.mobile.ResultCode;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,7 +45,8 @@ class ReactPublisherAdView extends ReactViewGroup implements AppEventListener {
     }
 
     private void createAdView() {
-        if (this.adView != null) this.adView.destroy();
+        if (this.adView != null)
+            this.adView.destroy();
 
         final Context context = getContext();
         this.adView = new PublisherAdView(context);
@@ -123,10 +126,7 @@ class ReactPublisherAdView extends ReactViewGroup implements AppEventListener {
 
     private void sendEvent(String name, @Nullable WritableMap event) {
         ReactContext reactContext = (ReactContext) getContext();
-        reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
-                        getId(),
-                        name,
-                        event);
+        reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), name, event);
     }
 
     public void loadBanner() {
@@ -145,7 +145,7 @@ class ReactPublisherAdView extends ReactViewGroup implements AppEventListener {
         }
 
         AdSize[] adSizesArray = adSizes.toArray(new AdSize[adSizes.size()]);
-        //hardcoded sizes
+        // hardcoded sizes
         if (this.adUnitID.equals(new String("/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_article1_app"))) {
             this.adView.setAdSizes(new AdSize(320, 320));
         }
@@ -158,52 +158,97 @@ class ReactPublisherAdView extends ReactViewGroup implements AppEventListener {
             this.adView.setAdSizes(new AdSize(320, 160));
         }
 
-        if (this.adUnitID.equals(new String("/21829114275/sportmember.de/sportmember.de_app/sportmember.de_article1_app"))) {
-            this.adView.setAdSizes(new AdSize(320, 320), new AdSize(320, 160), new AdSize(320, 100), new AdSize(320, 50),new AdSize(300, 250));
+        if (this.adUnitID
+                .equals(new String("/21829114275/sportmember.de/sportmember.de_app/sportmember.de_article1_app"))) {
+            this.adView.setAdSizes(new AdSize(320, 320), new AdSize(320, 160), new AdSize(320, 100),
+                    new AdSize(320, 50), new AdSize(300, 250));
         }
 
         if (this.adUnitID.equals(new String("/21829114275/sportmember.de/sportmember.de_app/sportmember.de_top_app"))) {
-            this.adView.setAdSizes(new AdSize(320, 320), new AdSize(320, 250), new AdSize(320, 160), new AdSize(320, 100), new AdSize(320, 50),new AdSize(300, 250));
+            this.adView.setAdSizes(new AdSize(320, 320), new AdSize(320, 250), new AdSize(320, 160),
+                    new AdSize(320, 100), new AdSize(320, 50), new AdSize(300, 250));
         }
 
-        if (this.adUnitID.equals(new String("/21829114275/sportmember.de/sportmember.de_app/sportmember.de_profile_app"))) {
-            this.adView.setAdSizes(new AdSize(320, 320), new AdSize(320, 250), new AdSize(320, 160), new AdSize(320, 100), new AdSize(320, 50),new AdSize(300, 250));
+        if (this.adUnitID
+                .equals(new String("/21829114275/sportmember.de/sportmember.de_app/sportmember.de_profile_app"))) {
+            this.adView.setAdSizes(new AdSize(320, 320), new AdSize(320, 250), new AdSize(320, 160),
+                    new AdSize(320, 100), new AdSize(320, 50), new AdSize(300, 250));
         }
         PublisherAdRequest.Builder adRequestBuilder = new PublisherAdRequest.Builder();
         // Handle criteo ad bids for request
-        if (this.adUnitID.equals(new String("/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_article1_app"))) {
-        BannerAdUnit bannerAdUnit = new BannerAdUnit(
-                "/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_article1_app",
-                new com.criteo.publisher.model.AdSize(320, 320));
-        Criteo.getInstance().setBidsForAdUnit(adRequestBuilder, bannerAdUnit);
-        }
-
-        if (this.adUnitID.equals(new String("/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_profile_app"))) {
-            BannerAdUnit bannerAdUnit = new BannerAdUnit(
-                    "/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_profile_app",
-                    new com.criteo.publisher.model.AdSize(320, 160));
-            Criteo.getInstance().setBidsForAdUnit(adRequestBuilder, bannerAdUnit);
-        }
-
-        if (this.adUnitID.equals(new String("/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_top_app"))) {
-            BannerAdUnit bannerAdUnit = new BannerAdUnit(
-                    "/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_top_app",
-                    new com.criteo.publisher.model.AdSize(320, 160));
-            Criteo.getInstance().setBidsForAdUnit(adRequestBuilder, bannerAdUnit);
-        }
-
-        
-        if (testDevices != null) {
-            for (int i = 0; i < testDevices.length; i++) {
-                String testDevice = testDevices[i];
-                if (testDevice == "SIMULATOR") {
-                    testDevice = PublisherAdRequest.DEVICE_ID_EMULATOR;
-                }
-                adRequestBuilder.addTestDevice(testDevice);
+        if (this.adUnitID.equals(new String("/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_article1_app"))
+                || this.adUnitID
+                        .equals(new String("/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_profile_app"))
+                || this.adUnitID
+                        .equals(new String("/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_top_app"))) {
+            if (this.adUnitID
+                    .equals(new String("/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_article1_app"))) {
+                BannerAdUnit bannerAdUnit = new BannerAdUnit(
+                        "/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_article1_app",
+                        new com.criteo.publisher.model.AdSize(320, 320));
+                Criteo.getInstance().setBidsForAdUnit(adRequestBuilder, bannerAdUnit);
+                org.prebid.mobile.BannerAdUnit bannerAdUnitPrebid = new org.prebid.mobile.BannerAdUnit(
+                        "10095-mobilewrapper-article1-test", 320, 320);
+                final PublisherAdRequest adRequest = adRequestBuilder.build();
+                final PublisherAdView adView = this.adView;
+                bannerAdUnitPrebid.fetchDemand(adRequest, new OnCompleteListener() {
+                    @Override
+                    public void onComplete(ResultCode resultCode) {
+                        adView.loadAd(adRequest);
+                    }
+                });
             }
+
+            if (this.adUnitID
+                    .equals(new String("/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_profile_app"))) {
+                BannerAdUnit bannerAdUnit = new BannerAdUnit(
+                        "/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_profile_app",
+                        new com.criteo.publisher.model.AdSize(320, 160));
+                Criteo.getInstance().setBidsForAdUnit(adRequestBuilder, bannerAdUnit);
+                org.prebid.mobile.BannerAdUnit bannerAdUnitPrebid = new org.prebid.mobile.BannerAdUnit(
+                        "10095-mobilewrapper-Profile-test", 320, 160);
+                final PublisherAdRequest adRequest = adRequestBuilder.build();
+                final PublisherAdView adView = this.adView;
+                bannerAdUnitPrebid.fetchDemand(adRequest, new OnCompleteListener() {
+                    @Override
+                    public void onComplete(ResultCode resultCode) {
+                        adView.loadAd(adRequest);
+                    }
+                });
+
+            }
+
+            if (this.adUnitID.equals(new String("/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_top_app"))) {
+                BannerAdUnit bannerAdUnit = new BannerAdUnit(
+                        "/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_top_app",
+                        new com.criteo.publisher.model.AdSize(320, 160));
+                Criteo.getInstance().setBidsForAdUnit(adRequestBuilder, bannerAdUnit);
+                org.prebid.mobile.BannerAdUnit bannerAdUnitPrebid = new org.prebid.mobile.BannerAdUnit(
+                        "10095-mobilewrapper-top-test", 320, 160);
+
+                final PublisherAdRequest adRequest = adRequestBuilder.build();
+                final PublisherAdView adView = this.adView;
+                bannerAdUnitPrebid.fetchDemand(adRequest, new OnCompleteListener() {
+                    @Override
+                    public void onComplete(ResultCode resultCode) {
+                        adView.loadAd(adRequest);
+                    }
+                });
+            }
+        } else {
+            if (testDevices != null) {
+                for (int i = 0; i < testDevices.length; i++) {
+                    String testDevice = testDevices[i];
+                    if (testDevice == "SIMULATOR") {
+                        testDevice = PublisherAdRequest.DEVICE_ID_EMULATOR;
+                    }
+                    adRequestBuilder.addTestDevice(testDevice);
+                }
+            }
+            PublisherAdRequest adRequest = adRequestBuilder.build();
+            this.adView.loadAd(adRequest);
         }
-        PublisherAdRequest adRequest = adRequestBuilder.build();
-        this.adView.loadAd(adRequest);
+
     }
 
     public void setAdUnitID(String adUnitID) {
@@ -276,15 +321,8 @@ public class RNPublisherBannerViewManager extends ViewGroupManager<ReactPublishe
     @Nullable
     public Map<String, Object> getExportedCustomDirectEventTypeConstants() {
         MapBuilder.Builder<String, Object> builder = MapBuilder.builder();
-        String[] events = {
-            EVENT_SIZE_CHANGE,
-            EVENT_AD_LOADED,
-            EVENT_AD_FAILED_TO_LOAD,
-            EVENT_AD_OPENED,
-            EVENT_AD_CLOSED,
-            EVENT_AD_LEFT_APPLICATION,
-            EVENT_APP_EVENT
-        };
+        String[] events = { EVENT_SIZE_CHANGE, EVENT_AD_LOADED, EVENT_AD_FAILED_TO_LOAD, EVENT_AD_OPENED,
+                EVENT_AD_CLOSED, EVENT_AD_LEFT_APPLICATION, EVENT_APP_EVENT };
         for (int i = 0; i < events.length; i++) {
             builder.put(events[i], MapBuilder.of("registrationName", events[i]));
         }
@@ -299,14 +337,14 @@ public class RNPublisherBannerViewManager extends ViewGroupManager<ReactPublishe
 
     @ReactProp(name = PROP_VALID_AD_SIZES)
     public void setPropValidAdSizes(final ReactPublisherAdView view, final ReadableArray adSizeStrings) {
-        ReadableNativeArray nativeArray = (ReadableNativeArray)adSizeStrings;
+        ReadableNativeArray nativeArray = (ReadableNativeArray) adSizeStrings;
         ArrayList<Object> list = nativeArray.toArrayList();
         String[] adSizeStringsArray = list.toArray(new String[list.size()]);
         AdSize[] adSizes = new AdSize[list.size()];
 
         for (int i = 0; i < adSizeStringsArray.length; i++) {
-                String adSizeString = adSizeStringsArray[i];
-                adSizes[i] = getAdSizeFromString(adSizeString);
+            String adSizeString = adSizeStringsArray[i];
+            adSizes[i] = getAdSizeFromString(adSizeString);
         }
         view.setValidAdSizes(adSizes);
     }
@@ -318,7 +356,7 @@ public class RNPublisherBannerViewManager extends ViewGroupManager<ReactPublishe
 
     @ReactProp(name = PROP_TEST_DEVICES)
     public void setPropTestDevices(final ReactPublisherAdView view, final ReadableArray testDevices) {
-        ReadableNativeArray nativeArray = (ReadableNativeArray)testDevices;
+        ReadableNativeArray nativeArray = (ReadableNativeArray) testDevices;
         ArrayList<Object> list = nativeArray.toArrayList();
         view.setTestDevices(list.toArray(new String[list.size()]));
     }
@@ -353,7 +391,8 @@ public class RNPublisherBannerViewManager extends ViewGroupManager<ReactPublishe
     }
 
     @Override
-    public void receiveCommand(ReactPublisherAdView root, int commandId, @javax.annotation.Nullable ReadableArray args) {
+    public void receiveCommand(ReactPublisherAdView root, int commandId,
+            @javax.annotation.Nullable ReadableArray args) {
         switch (commandId) {
             case COMMAND_LOAD_BANNER:
                 root.loadBanner();
