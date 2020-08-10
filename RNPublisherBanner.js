@@ -20,7 +20,7 @@ class PublisherBanner extends Component {
   }
 
   loadBanner() {
-    this.props.onBannerLoad?.()
+    if(typeof this.props.onBannerLoad === "function") { this.props.onBannerLoad() }
     UIManager.dispatchViewManagerCommand(
       findNodeHandle(this._bannerView),
       UIManager.getViewManagerConfig("RNDFPBannerView").Commands.loadBanner,
