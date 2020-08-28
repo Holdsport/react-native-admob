@@ -28,6 +28,7 @@
 @implementation RNDFPBannerView
 {
     DFPBannerView  *_bannerView;
+    NSString *_sportName;
 }
 
 - (void)dealloc
@@ -65,7 +66,8 @@
 #pragma clang diagnostic pop
 
 - (void)loadBanner {
-    GADRequest *request = [GADRequest request];
+    DFPRequest *request = [DFPRequest request];
+    request.customTargeting = @{ @"sport": _sportName };
     request.testDevices = _testDevices;
       Criteo *criteoSdk = [Criteo sharedCriteo];
     if([_bannerView.adUnitID isEqualToString:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_article1_app"] || [_bannerView.adUnitID isEqualToString:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_top_app"] || [_bannerView.adUnitID isEqualToString:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_profile_app"]) {
@@ -114,6 +116,11 @@
         [_bannerView loadRequest:request];
     }
 
+}
+
+- (void)setSportName:(NSString *) sportName
+{
+    _sportName = sportName;
 }
 
 - (void)setValidAdSizes:(NSArray *)adSizes

@@ -13,6 +13,8 @@
 @property (nonatomic, copy) NSArray *validAdSizes;
 @property (nonatomic, copy) NSArray *testDevices;
 
+@property(nonatomic, copy, nullable) NSString *sportName;
+
 @property (nonatomic, copy) RCTBubblingEventBlock onSizeChange;
 @property (nonatomic, copy) RCTBubblingEventBlock onAppEvent;
 @property (nonatomic, copy) RCTBubblingEventBlock onAdLoaded;
