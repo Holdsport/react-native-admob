@@ -77,7 +77,7 @@
                 [[CRBannerAdUnit alloc] initWithAdUnitId:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_article1_app"
                                                     size:CGSizeMake(320, 320)];
             [criteoSdk setBidsForRequest:request withAdUnit:bannerAdUnit];
-            BannerAdUnit *bannerUnit = [[BannerAdUnit alloc] initWithConfigId:@"10095-mobilewrapper-top-test" size:CGSizeMake(320, 320)];
+            BannerAdUnit *bannerUnit = [[BannerAdUnit alloc] initWithConfigId:@"10095-mobilewrapper-top" size:CGSizeMake(320, 320)];
                     [bannerUnit fetchDemandWithAdObject:request completion:^(enum ResultCode result) {
             NSLog(@"Prebid demand result %ld", (long)result);
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -90,7 +90,7 @@
                 [[CRBannerAdUnit alloc] initWithAdUnitId:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_top_app"
                                                     size:CGSizeMake(320, 160)];
             [criteoSdk setBidsForRequest:request withAdUnit:bannerAdUnit];
-            BannerAdUnit *bannerUnit = [[BannerAdUnit alloc] initWithConfigId:@"10095-mobilewrapper-article1-test" size:CGSizeMake(320, 160)];
+            BannerAdUnit *bannerUnit = [[BannerAdUnit alloc] initWithConfigId:@"10095-mobilewrapper-article1" size:CGSizeMake(320, 160)];
             [bannerUnit fetchDemandWithAdObject:request completion:^(enum ResultCode result) {
             NSLog(@"Prebid demand result %ld", (long)result);
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -104,7 +104,7 @@
                 [[CRBannerAdUnit alloc] initWithAdUnitId:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_profile_app"
                                                     size:CGSizeMake(320, 160)];
             [criteoSdk setBidsForRequest:request withAdUnit:bannerAdUnit];
-            BannerAdUnit *bannerUnit = [[BannerAdUnit alloc] initWithConfigId:@"10095-mobilewrapper-Profile-test" size:CGSizeMake(320, 160)];
+            BannerAdUnit *bannerUnit = [[BannerAdUnit alloc] initWithConfigId:@"10095-mobilewrapper-Profile" size:CGSizeMake(320, 160)];
             [bannerUnit fetchDemandWithAdObject:request completion:^(enum ResultCode result) {
             NSLog(@"Prebid demand result %ld", (long)result);
             dispatch_async(dispatch_get_main_queue(), ^{
