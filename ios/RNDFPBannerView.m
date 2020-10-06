@@ -149,8 +149,7 @@
     }
     if ([_bannerView.adUnitID isEqualToString:@"/21829114275/Holdsport.dk/holdsport.dk_app/holdsport.dk_profile_app"]) {
      _bannerView.validAdSizes = @[
-        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 160))),
-        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(300, 250)))
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 160)))
      ];
     }
     if ([_bannerView.adUnitID isEqualToString:@"/21829114275/sportmember.de/sportmember.de_app/sportmember.de_article1_app"]) {
@@ -173,13 +172,8 @@
      ];
     }
     if ([_bannerView.adUnitID isEqualToString:@"/21829114275/sportmember.de/sportmember.de_app/sportmember.de_profile_app"]) {
-     _bannerView.validAdSizes = @[
-        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 320))),
-        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 250))), 
-        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 160))), 
-        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 100))), 
-        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 50))),
-        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(300, 250)))
+     _bannerView.validAdSizes = @[ 
+        NSValueFromGADAdSize(GADAdSizeFromCGSize(CGSizeMake(320, 160)))
      ];
     }
 
