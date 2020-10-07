@@ -171,8 +171,7 @@ class ReactPublisherAdView extends ReactViewGroup implements AppEventListener {
 
         if (this.adUnitID
                 .equals(new String("/21829114275/sportmember.de/sportmember.de_app/sportmember.de_profile_app"))) {
-            this.adView.setAdSizes(new AdSize(320, 320), new AdSize(320, 250), new AdSize(320, 160),
-                    new AdSize(320, 100), new AdSize(320, 50), new AdSize(300, 250));
+            this.adView.setAdSizes(new AdSize(320, 160));
         }
         PublisherAdRequest.Builder adRequestBuilder = new PublisherAdRequest.Builder();
         // Handle criteo ad bids for request
