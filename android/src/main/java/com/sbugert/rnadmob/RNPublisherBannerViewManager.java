@@ -187,7 +187,7 @@ class ReactPublisherAdView extends ReactViewGroup implements AppEventListener {
                         new com.criteo.publisher.model.AdSize(320, 320));
                 Criteo.getInstance().setBidsForAdUnit(adRequestBuilder, bannerAdUnit);
                 org.prebid.mobile.BannerAdUnit bannerAdUnitPrebid = new org.prebid.mobile.BannerAdUnit(
-                        "10095-mobilewrapper-article1", 320, 320);
+                        "10095-mobilewrapper_android-article1", 320, 320);
                 final PublisherAdRequest adRequest = adRequestBuilder.build();
                 final PublisherAdView adView = this.adView;
                 bannerAdUnitPrebid.fetchDemand(adRequest, new OnCompleteListener() {
@@ -205,7 +205,7 @@ class ReactPublisherAdView extends ReactViewGroup implements AppEventListener {
                         new com.criteo.publisher.model.AdSize(320, 160));
                 Criteo.getInstance().setBidsForAdUnit(adRequestBuilder, bannerAdUnit);
                 org.prebid.mobile.BannerAdUnit bannerAdUnitPrebid = new org.prebid.mobile.BannerAdUnit(
-                        "10095-mobilewrapper-Profile", 320, 160);
+                        "10095-mobilewrapper_android-Profile", 320, 160);
                 final PublisherAdRequest adRequest = adRequestBuilder.build();
                 final PublisherAdView adView = this.adView;
                 bannerAdUnitPrebid.fetchDemand(adRequest, new OnCompleteListener() {
@@ -223,7 +223,7 @@ class ReactPublisherAdView extends ReactViewGroup implements AppEventListener {
                         new com.criteo.publisher.model.AdSize(320, 160));
                 Criteo.getInstance().setBidsForAdUnit(adRequestBuilder, bannerAdUnit);
                 org.prebid.mobile.BannerAdUnit bannerAdUnitPrebid = new org.prebid.mobile.BannerAdUnit(
-                        "10095-mobilewrapper-top", 320, 160);
+                        "10095-mobilewrapper_android-top", 320, 160);
 
                 final PublisherAdRequest adRequest = adRequestBuilder.build();
                 final PublisherAdView adView = this.adView;
